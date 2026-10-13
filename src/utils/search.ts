@@ -2,10 +2,7 @@ import type { Product } from '@/types/product';
 
 // Met une chaîne en minuscules et retire les accents : « Nestlé » devient « nestle ».
 export function normalize(text: string): string {
-  return text
-    .toLowerCase()
-    .normalize('NFD')
-    .replace(/[̀-ͯ]/g, '');
+  return text.toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g, '');
 }
 
 // Garde les produits dont le nom ou la marque contient la recherche.

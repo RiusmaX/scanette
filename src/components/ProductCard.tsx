@@ -1,3 +1,4 @@
+import { Link } from 'expo-router';
 import { useState } from 'react';
 import { Image, Pressable, StyleSheet, Text, View } from 'react-native';
 
@@ -14,33 +15,38 @@ export function ProductCard({ product }: ProductCardProps) {
   const [isFavorite, setIsFavorite] = useState(false);
 
   return (
-    // La carte est une ligne : image | informations | actions.
-    <View style={styles.card}>
-      {product.imageUrl ? (
-        <Image source={{ uri: product.imageUrl }} style={styles.image} />
-      ) : (
-        <View style={[styles.image, styles.imagePlaceholder]} />
-      )}
+    // Link + asChild : le Pressable devient le lien vers la fiche produit.
+    <Link href={{ pathname: '/product/[code]', params: { code: product.code } }} asChild>
+      {/* La carte est une ligne : image | informations | actions. */}
+      <Pressable style={styles.card}>
+        {product.imageUrl ? (
+          <Image source={{ uri: product.imageUrl }} style={styles.image} />
+        ) : (
+          <View style={[styles.image, styles.imagePlaceholder]} />
+        )}
 
-      {/* flex: 1 : la colonne du milieu prend toute la place restante. */}
-      <View style={styles.info}>
-        <Text style={styles.name} numberOfLines={2}>
-          {product.name}
-        </Text>
-        <Text style={styles.brand}>
-          {product.brand}
-          {product.quantity ? ` · ${product.quantity}` : ''}
-        </Text>
-        <Text style={styles.code}>{product.code}</Text>
-      </View>
+        {/* flex: 1 : la colonne du milieu prend toute la place restante. */}
+        <View style={styles.info}>
+          <Text style={styles.name} numberOfLines={2}>
+            {product.name}
+          </Text>
+          <Text style={styles.brand}>
+            {product.brand}
+            {product.quantity ? ` · ${product.quantity}` : ''}
+          </Text>
+          <Text style={styles.code}>{product.code}</Text>
+        </View>
 
-      <View style={styles.actions}>
-        <NutriScoreBadge grade={product.nutriScore} />
-        <Pressable onPress={() => setIsFavorite(!isFavorite)} hitSlop={8}>
-          <Text style={[styles.favorite, isFavorite && styles.favoriteActive]}>{isFavorite ? '♥' : '♡'}</Text>
-        </Pressable>
-      </View>
-    </View>
+        <View style={styles.actions}>
+          <NutriScoreBadge grade={product.nutriScore} />
+          <Pressable onPress={() => setIsFavorite(!isFavorite)} hitSlop={8}>
+            <Text style={[styles.favorite, isFavorite && styles.favoriteActive]}>
+              {isFavorite ? '♥' : '♡'}
+            </Text>
+          </Pressable>
+        </View>
+      </Pressable>
+    </Link>
   );
 }
 

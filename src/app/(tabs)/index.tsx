@@ -1,4 +1,3 @@
-import { Stack } from 'expo-router';
 import { useEffect, useState } from 'react';
 import {
   ActivityIndicator,
@@ -76,9 +75,6 @@ export default function CatalogScreen() {
 
   return (
     <View style={styles.screen}>
-      {/* Titre de l'écran dans l'en-tête de la pile */}
-      <Stack.Screen options={{ title: 'Catalogue' }} />
-
       <SearchBar value={query} onChangeText={setQuery} />
 
       <View style={styles.toolbar}>

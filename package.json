@@ -38,6 +38,7 @@
     "@types/react": "~19.2.2",
     "jest": "~29.7.0",
     "jest-expo": "~57.0.6",
+    "prettier": "^3.9.10",
     "typescript": "~6.0.3"
   },
   "scripts": {
@@ -50,7 +51,8 @@
     "test": "jest",
     "ex:tp1": "node --test exercises/tp01-js-basics/*.test.mjs",
     "ex:tp2": "node --test exercises/tp02-modern-js/*.test.mjs",
-    "ex:tp3": "tsc -p exercises/tp03-typescript && node --test exercises/tp03-typescript/*.test.ts"
+    "ex:tp3": "tsc -p exercises/tp03-typescript && node --test exercises/tp03-typescript/*.test.ts",
+    "format": "prettier --write \"src/**/*.{ts,tsx}\""
   },
   "private": true,
   "jest": {
