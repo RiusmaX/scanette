@@ -1,29 +1,45 @@
-import { Link, Stack, useLocalSearchParams } from 'expo-router';
-import { Pressable, ScrollView, StyleSheet, Text, View } from 'react-native';
+import { Link, Stack, useFocusEffect, useLocalSearchParams } from 'expo-router';
+import { useCallback, useState } from 'react';
+import { ActivityIndicator, Pressable, ScrollView, StyleSheet, Text, View } from 'react-native';
 
 import { ElasticImage } from '@/components/ElasticImage';
 import { NutriScoreBadge } from '@/components/NutriScoreBadge';
 import { NutrimentsTable } from '@/components/NutrimentsTable';
-import { catalog } from '@/data/catalog';
+import { ReviewList } from '@/components/ReviewList';
+import { useProduct } from '@/hooks/useProduct';
+import { getReviews, type Review } from '@/services/reviews';
 import { colors, fontSizes, monospaceFont, radius, spacing } from '@/theme/theme';
 
-// Les crochets du nom de fichier font de « code » un paramètre de route : /product/3017620422003.
+const SOURCE_LABELS = {
+  catalog: 'Données du catalogue local',
+  cache: 'Données Open Food Facts (cache)',
+  api: 'Données Open Food Facts à jour',
+} as const;
+
 export default function ProductScreen() {
   const { code } = useLocalSearchParams<{ code: string }>();
-  const product = catalog.find((item) => item.code === code);
+  const { product, source, isLoading, error } = useProduct(code);
+  const [reviews, setReviews] = useState<Review[]>([]);
+
+  // useFocusEffect : se relance chaque fois que l'écran revient au premier plan,
+  // par exemple quand on ferme la modale d'avis.
+  useFocusEffect(
+    useCallback(() => {
+      getReviews(code).then(setReviews);
+    }, [code]),
+  );
 
   if (!product) {
     return (
       <View style={styles.centered}>
-        <Stack.Screen options={{ title: 'Introuvable' }} />
-        <Text>Aucun produit avec le code {code}.</Text>
+        <Stack.Screen options={{ title: isLoading ? 'Chargement…' : 'Introuvable' }} />
+        {isLoading ? <ActivityIndicator size="large" color={colors.primary} /> : <Text>{error}</Text>}
       </View>
     );
   }
 
   return (
     <ScrollView contentContainerStyle={styles.container}>
-      {/* Le titre de l'en-tête prend le nom du produit. */}
       <Stack.Screen options={{ title: product.name }} />
 
       {product.imageUrl ? <ElasticImage uri={product.imageUrl} /> : null}
@@ -38,6 +54,11 @@ export default function ProductScreen() {
           <Text style={styles.code}>{product.code}</Text>
         </View>
         <NutriScoreBadge grade={product.nutriScore} />
+      </View>
+
+      <View style={styles.sourceRow}>
+        {isLoading ? <ActivityIndicator size="small" color={colors.primary} /> : null}
+        {source ? <Text style={styles.source}>{SOURCE_LABELS[source]}</Text> : null}
       </View>
 
       {product.novaGroup ? <Text style={styles.nova}>Groupe NOVA {product.novaGroup} sur 4</Text> : null}
@@ -63,6 +84,11 @@ export default function ProductScreen() {
           <Text style={styles.blockText}>{product.allergens.join(', ')}</Text>
         </View>
       ) : null}
+
+      <View style={styles.block}>
+        <Text style={styles.blockTitle}>Avis</Text>
+        <ReviewList reviews={reviews} />
+      </View>
     </ScrollView>
   );
 }
@@ -76,6 +102,7 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: 'center',
     justifyContent: 'center',
+    padding: spacing.lg,
   },
   header: {
     flexDirection: 'row',
@@ -98,6 +125,15 @@ const styles = StyleSheet.create({
   code: {
     fontFamily: monospaceFont,
     color: colors.textMuted,
+  },
+  sourceRow: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: spacing.sm,
+  },
+  source: {
+    color: colors.textMuted,
+    fontSize: fontSizes.small,
   },
   nova: {
     color: colors.text,

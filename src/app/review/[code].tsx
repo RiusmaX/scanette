@@ -18,6 +18,7 @@ import { FormField } from '@/components/FormField';
 import { StarRating } from '@/components/StarRating';
 import { catalog } from '@/data/catalog';
 import { reviewSchema, type ReviewFormValues } from '@/schemas/review';
+import { saveReview } from '@/services/reviews';
 import { colors, fontSizes, radius, spacing } from '@/theme/theme';
 
 // Écran présenté en modale (voir le layout racine) : l'avis sur un produit.
@@ -37,7 +38,9 @@ export default function ReviewScreen() {
   });
 
   // handleSubmit n'appelle cette fonction que si TOUT le formulaire est valide.
-  function onSubmit(values: ReviewFormValues) {
+  // Fonction asynchrone : isSubmitting reste vrai pendant l'enregistrement (bouton désactivé).
+  async function onSubmit(values: ReviewFormValues) {
+    await saveReview(code, values);
     Alert.alert('Merci !', `Avis de ${values.author} enregistré : ${values.rating}/5.`);
     router.back();
   }

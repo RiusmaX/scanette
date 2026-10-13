@@ -110,13 +110,31 @@ export function mapProduct(raw: OffProduct, code: string): Product {
   };
 }
 
-// À écrire ensemble en TD : récupère un produit par son code-barres.
-// - appel GET sur `${BASE_URL}/product/${code}?fields=${FIELDS}` avec l'en-tête User-Agent ;
-// - réponse non OK (hors 404) : on lève une Error avec le statut HTTP ;
-// - status différent de 1 ou product absent : on lève une ProductNotFoundError ;
-// - sinon : on renvoie mapProduct(json.product, code).
-export async function getProduct(code: string): Promise<Product> {
-  throw new Error(
-    `getProduct(${code}) n'est pas encore écrit (FIELDS : ${FIELDS}, ${BASE_URL}, ${USER_AGENT})`,
-  );
+// Récupère un produit par son code-barres. Lève une erreur si le réseau échoue
+// ou si le produit n'existe pas : c'est à l'appelant de décider quoi afficher.
+export async function getProduct(code: string, timeoutMs = 8000): Promise<Product> {
+  // AbortController coupe la requête si le serveur met trop de temps à répondre.
+  const controller = new AbortController();
+  const timeoutId = setTimeout(() => controller.abort(), timeoutMs);
+
+  try {
+    const response = await fetch(`${BASE_URL}/product/${code}?fields=${FIELDS}`, {
+      headers: { 'User-Agent': USER_AGENT },
+      signal: controller.signal,
+    });
+
+    // fetch ne lève PAS d'erreur sur un statut 500 : il faut tester response.ok soi-même.
+    if (!response.ok && response.status !== 404) {
+      throw new Error(`Open Food Facts a répondu ${response.status}`);
+    }
+
+    const json = (await response.json()) as OffProductResponse;
+    if (json.status !== 1 || !json.product) {
+      throw new ProductNotFoundError(code);
+    }
+    return mapProduct(json.product, code);
+  } finally {
+    // finally s'exécute dans tous les cas : succès, erreur ou expiration.
+    clearTimeout(timeoutId);
+  }
 }
