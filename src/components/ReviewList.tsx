@@ -1,4 +1,4 @@
-import { StyleSheet, Text, View } from 'react-native';
+import { Image, StyleSheet, Text, View } from 'react-native';
 
 import type { Review } from '@/services/reviews';
 import { colors, fontSizes, radius, spacing } from '@/theme/theme';
@@ -21,8 +21,10 @@ export function ReviewList({ reviews }: ReviewListProps) {
             {'☆'.repeat(5 - review.rating)} · {review.author}
           </Text>
           <Text style={styles.comment}>{review.comment}</Text>
+          {review.photoUri ? <Image source={{ uri: review.photoUri }} style={styles.photo} /> : null}
           <Text style={styles.meta}>
             {new Date(review.createdAt).toLocaleDateString('fr-FR')}
+            {review.city ? ` · ${review.city}` : ''}
             {review.wouldBuyAgain ? ' · le rachèterait' : ''}
           </Text>
         </View>
@@ -47,6 +49,11 @@ const styles = StyleSheet.create({
   },
   comment: {
     color: colors.text,
+  },
+  photo: {
+    width: '100%',
+    height: 160,
+    borderRadius: radius.sm,
   },
   meta: {
     color: colors.textMuted,

@@ -11,6 +11,9 @@ export const reviewSchema = z.object({
     .min(10, 'Ton avis doit faire au moins 10 caractères')
     .max(500, '500 caractères au maximum'),
   wouldBuyAgain: z.boolean(),
+  // Bonus du TP 13 : la ville d'achat et une photo, facultatives.
+  city: z.string().optional(),
+  photoUri: z.string().optional(),
 });
 
 // z.infer fabrique le type à partir du schéma : { author: string; rating: number; ... }

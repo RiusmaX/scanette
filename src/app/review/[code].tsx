@@ -1,8 +1,12 @@
 import { zodResolver } from '@hookform/resolvers/zod';
 import { router, useLocalSearchParams } from 'expo-router';
+import * as ImagePicker from 'expo-image-picker';
+import { useState } from 'react';
 import { Controller, useForm } from 'react-hook-form';
 import {
+  ActivityIndicator,
   Alert,
+  Image,
   KeyboardAvoidingView,
   Platform,
   Pressable,
@@ -18,6 +22,7 @@ import { FormField } from '@/components/FormField';
 import { StarRating } from '@/components/StarRating';
 import { catalog } from '@/data/catalog';
 import { reviewSchema, type ReviewFormValues } from '@/schemas/review';
+import { getCurrentCity } from '@/services/location';
 import { saveReview } from '@/services/reviews';
 import { colors, fontSizes, radius, spacing } from '@/theme/theme';
 
@@ -27,15 +32,52 @@ export default function ReviewScreen() {
   const product = catalog.find((item) => item.code === code);
 
   // useForm garde les valeurs et les erreurs ; zodResolver branche le schéma de validation.
+  const [isLocating, setIsLocating] = useState(false);
+
   const {
     control,
     handleSubmit,
+    setValue,
+    watch,
     formState: { errors, isSubmitting },
   } = useForm<ReviewFormValues>({
     resolver: zodResolver(reviewSchema),
     defaultValues: { author: '', rating: 0, comment: '', wouldBuyAgain: false },
     mode: 'onBlur', // on valide un champ quand on le quitte, pas à chaque frappe
   });
+
+  // watch lit la valeur courante d'un champ (et redessine quand elle change).
+  const city = watch('city');
+  const photoUri = watch('photoUri');
+
+  // Bonus du TP 13 : la ville vient du GPS.
+  async function fillCity() {
+    setIsLocating(true);
+    try {
+      const found = await getCurrentCity();
+      if (found) {
+        setValue('city', found);
+      } else {
+        Alert.alert('Position indisponible', 'Autorise la localisation pour ajouter la ville.');
+      }
+    } finally {
+      setIsLocating(false);
+    }
+  }
+
+  // Bonus du TP 13 : une photo choisie dans la galerie.
+  async function pickPhoto() {
+    // La documentation d'Expo l'indique : ouvrir la galerie ne demande aucune permission,
+    // le sélecteur du système ne donne accès qu'à la photo choisie.
+    const result = await ImagePicker.launchImageLibraryAsync({
+      mediaTypes: ['images'],
+      allowsEditing: true,
+      quality: 0.7,
+    });
+    if (!result.canceled) {
+      setValue('photoUri', result.assets[0].uri);
+    }
+  }
 
   // handleSubmit n'appelle cette fonction que si TOUT le formulaire est valide.
   // Fonction asynchrone : isSubmitting reste vrai pendant l'enregistrement (bouton désactivé).
@@ -109,6 +151,20 @@ export default function ReviewScreen() {
           )}
         />
 
+        <View style={styles.extras}>
+          <Pressable onPress={fillCity} style={styles.secondaryButton} disabled={isLocating}>
+            {isLocating ? (
+              <ActivityIndicator color={colors.primary} />
+            ) : (
+              <Text style={styles.secondaryText}>{city ? `📍 ${city}` : 'Ajouter la ville'}</Text>
+            )}
+          </Pressable>
+          <Pressable onPress={pickPhoto} style={styles.secondaryButton}>
+            <Text style={styles.secondaryText}>{photoUri ? 'Changer la photo' : 'Ajouter une photo'}</Text>
+          </Pressable>
+        </View>
+        {photoUri ? <Image source={{ uri: photoUri }} style={styles.photo} /> : null}
+
         <Pressable
           onPress={handleSubmit(onSubmit)}
           disabled={isSubmitting}
@@ -164,6 +220,27 @@ const styles = StyleSheet.create({
   switchLabel: {
     fontSize: fontSizes.body,
     color: colors.text,
+  },
+  extras: {
+    flexDirection: 'row',
+    gap: spacing.sm,
+  },
+  secondaryButton: {
+    flex: 1,
+    borderWidth: 1,
+    borderColor: colors.primary,
+    borderRadius: radius.md,
+    paddingVertical: spacing.sm,
+    alignItems: 'center',
+  },
+  secondaryText: {
+    color: colors.primary,
+    fontWeight: '600',
+  },
+  photo: {
+    width: '100%',
+    height: 180,
+    borderRadius: radius.md,
   },
   button: {
     backgroundColor: colors.primary,
