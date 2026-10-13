@@ -1,0 +1,921 @@
+[
+  {
+    "code": "3168930010265",
+    "name": "Cruesli mélange de noix",
+    "brand": "Quaker",
+    "quantity": "450 g",
+    "category": "Céréales",
+    "nutriScore": "b",
+    "novaGroup": 4,
+    "imageUrl": "https://images.openfoodfacts.org/images/products/316/893/001/0265/front_en.297.200.jpg",
+    "ingredients": "_avoine_ complète (32%), _blé_ complet (18%), sirop de glucose, huile de tournesol, sucre, _amandes_ grillées (4,2%), _noisettes_ (4%), oligofructose, _noix de Pécan_ (1,5%), farine de _blé_, farine de riz, _noix du Brésil_ (1%), miel, arômes naturels, antioxydant (tocophérol).",
+    "allergens": [
+      "gluten",
+      "fruits à coque",
+      "avoine"
+    ],
+    "nutriments": {
+      "energyKcal": 462.0,
+      "fat": 19.0,
+      "saturatedFat": 2.0,
+      "sugars": 12.0,
+      "salt": 0.0,
+      "proteins": 8.5
+    }
+  },
+  {
+    "code": "3229820160672",
+    "name": "Croustillant Chocolat",
+    "brand": "Bjorg",
+    "quantity": "500 g",
+    "category": "Céréales",
+    "nutriScore": "c",
+    "novaGroup": 4,
+    "imageUrl": "https://images.openfoodfacts.org/images/products/322/982/016/0672/front_fr.340.200.jpg",
+    "ingredients": "Flocons d'avoine complète, Flocons de blé complet, Riz extrudé (farine de riz), Sucre de canne non raffiné, Chocolat noir (pâte de cacao, sucre de canne non raffiné, inuline), Farine de blé, Huile de tournesol, Miel, Stabilisant: gomme d'acacia, Mélasses, Flocons de noix de coco, Sel marin, Cannelle, Antioxydant: extrait riche en tocopherols. \r\n\r\nPeut contenir du lait, des fruits à coque, des graines de sésame et du soja. \r\n\r\n*Ingrédients biologiques.",
+    "allergens": [
+      "gluten"
+    ],
+    "nutriments": {
+      "energyKcal": 431.67,
+      "fat": 14.0,
+      "saturatedFat": 3.4,
+      "sugars": 14.0,
+      "salt": 0.26,
+      "proteins": 9.27
+    }
+  },
+  {
+    "code": "3229820019307",
+    "name": "Flocons d'avoine",
+    "brand": "Bjorg",
+    "quantity": "500 g",
+    "category": "Céréales",
+    "nutriScore": "a",
+    "novaGroup": 1,
+    "imageUrl": "https://images.openfoodfacts.org/images/products/322/982/001/9307/front_fr.300.200.jpg",
+    "ingredients": "Flocons d'_avoine_ complète issue de l'agriculture biologique.",
+    "allergens": [
+      "gluten",
+      "avoine"
+    ],
+    "nutriments": {
+      "energyKcal": 363.33,
+      "fat": 7.1,
+      "saturatedFat": 1.3,
+      "sugars": 1.7,
+      "salt": 0.02,
+      "proteins": 11.0
+    }
+  },
+  {
+    "code": "3229820129488",
+    "name": "Muesli raisin, figue, datte, abricot",
+    "brand": "Bjorg",
+    "quantity": "375 g",
+    "category": "Céréales",
+    "nutriScore": "a",
+    "novaGroup": 3,
+    "imageUrl": "https://images.openfoodfacts.org/images/products/322/982/012/9488/front_fr.238.200.jpg",
+    "ingredients": "Flocons d'avoine* complète, Flocons de blé* complet, Raisins 8% (raisins*, huile de tournesol*), Figues* séchées 8% (figues*, farine de riz*), Flocons d'épeautre* complet, Pétales de maïs*, Dattes* 4 % (dattes*, farine de riz*), Abricots* secs 3% (abricots*, farine de riz*), Graines de tournesol*, Pétales d'épeautre* complet, Graines de lin*, Graines de courge*.\r\n \r\n *Ingrédients biologiques.",
+    "allergens": [
+      "gluten"
+    ],
+    "nutriments": {
+      "energyKcal": 352.0,
+      "fat": 5.8,
+      "saturatedFat": 0.9,
+      "sugars": 14.0,
+      "salt": 0.03,
+      "proteins": 11.0
+    }
+  },
+  {
+    "code": "5010477348678",
+    "name": "Special Muesli 30 % fruits et noix",
+    "brand": "Jordans",
+    "quantity": "750 g",
+    "category": "Céréales",
+    "nutriScore": "a",
+    "novaGroup": 1,
+    "imageUrl": "https://images.openfoodfacts.org/images/products/501/047/734/8678/front_fr.226.200.jpg",
+    "ingredients": "Céréales complètes (59%) (flocons d'_avoine_, flocons de _blé_, flocons de _blé_ grillés), fruits secs (30%)  (raisins secs, raisins de sultane, abricots secs hachés, tranches de pommes séchées, éclats de noix de coco grillés, _noisettes_ hachées grillées, _amandes_ effilées), flocons d'_orge_, graines de tournesol.",
+    "allergens": [
+      "gluten",
+      "fruits à coque",
+      "avoine"
+    ],
+    "nutriments": {
+      "energyKcal": 360.0,
+      "fat": 7.2,
+      "saturatedFat": 2.0,
+      "sugars": 17.0,
+      "salt": 0.03,
+      "proteins": 10.0
+    }
+  },
+  {
+    "code": "3387390123210",
+    "name": "Chocapic",
+    "brand": "Nestlé",
+    "quantity": "375 g",
+    "category": "Céréales",
+    "nutriScore": "b",
+    "novaGroup": 4,
+    "imageUrl": "https://images.openfoodfacts.org/images/products/338/739/012/3210/front_fr.146.200.jpg",
+    "ingredients": "Farine de BLÉ complet 37,5 %, farine de BLÉ 18,5 %, chocolat en poudre 18,1 % (sucre, cacao en poudre*), semoule de maïs, sirop de glucose, extrait de malt d'ORGE (ORGE, ORGE malté), huile de tournesol, carbonate de calcium, sucre, farine d'ORGE malté, émulsifiant : lécithines ; sel, arômes naturels, fer, vitamines B3, B5, D, B6, B1, B2, B9. Peut contenir du LAIT et des FRUITS À COQUE.",
+    "allergens": [
+      "gluten"
+    ],
+    "nutriments": {
+      "energyKcal": 384.0,
+      "fat": 4.4,
+      "saturatedFat": 1.1,
+      "sugars": 19.9,
+      "salt": 0.2,
+      "proteins": 8.5
+    }
+  },
+  {
+    "code": "3229820782560",
+    "name": "Muesli Superfruits",
+    "brand": "Bjorg",
+    "quantity": "375 g",
+    "category": "Céréales",
+    "nutriScore": "a",
+    "novaGroup": 3,
+    "imageUrl": "https://images.openfoodfacts.org/images/products/322/982/078/2560/front_fr.220.200.jpg",
+    "ingredients": "Flocons d'avoine* complète, Raisins secs* 16% (raisins secs*, huile de tournesol*), Flocons de blé* complet, Flocons d'épeautre complet* (blé), Flocons de blé, Amandes entières*, Cassis lyophilisés* 1%, Cranberries lyophilisées* 0,6%, Myrtilles lyophilisées* 0,5%. Peut contenir des traces de lait, d'autres fruits à coque, de graines de sésame, de soja. *Ingrédients biologiques.",
+    "allergens": [
+      "gluten",
+      "fruits à coque"
+    ],
+    "nutriments": {
+      "energyKcal": 358.57,
+      "fat": 6.0,
+      "saturatedFat": 0.86,
+      "sugars": 13.0,
+      "salt": 0.04,
+      "proteins": 12.0
+    }
+  },
+  {
+    "code": "7622210449283",
+    "name": "Prince",
+    "brand": "LU",
+    "quantity": "300 g",
+    "category": "Biscuits",
+    "nutriScore": "e",
+    "novaGroup": 4,
+    "imageUrl": "https://images.openfoodfacts.org/images/products/762/221/044/9283/front_en.605.200.jpg",
+    "ingredients": "Céréale 50 % (Farine de blé 34,8 %, farine de blé complet 15,2 %), sucre, huiles végétales (palme, colza), cacao maigre en poudre 4,5 %, sirop de glucose, amidon de blé, poudres à lever (carbonates d'ammonium, carbonates de sodium), émulsifiant (lécithines de soja), sel, lait écrémé en poudre, perméat de lactosérum (de lait), arômes. Peut contenir œuf.",
+    "allergens": [
+      "œufs",
+      "gluten",
+      "lait",
+      "soja"
+    ],
+    "nutriments": {
+      "energyKcal": 467.0,
+      "fat": 17.0,
+      "saturatedFat": 5.6,
+      "sugars": 32.0,
+      "salt": 0.49,
+      "proteins": 6.3
+    }
+  },
+  {
+    "code": "3175680011480",
+    "name": "Sésame",
+    "brand": "Gerblé",
+    "quantity": "230 g",
+    "category": "Biscuits",
+    "nutriScore": "c",
+    "novaGroup": 4,
+    "imageUrl": "https://images.openfoodfacts.org/images/products/317/568/001/1480/front_fr.325.200.jpg",
+    "ingredients": "Farine de blé 57%, sucre de canne roux, huile de colza, sésame toasté 10,6%, germe de blé 5,4%, farine complète de blé 5,4%, arôme naturel, magnésium, émulsifiant : lécithines, poudres à lever (tartrates de potassium, carbonates de sodium, carbonates d'ammonium), sel de mer, amidon de blé, vitamines (E, PP, B6, B1, B9).\r\n\r\nFabriqué dans un atelier qui utilise des fruits à coque, du lait, du lupin, de la moutarde, des oeufs et du soja",
+    "allergens": [
+      "gluten",
+      "sésame"
+    ],
+    "nutriments": {
+      "energyKcal": 467.0,
+      "fat": 18.0,
+      "saturatedFat": 2.0,
+      "sugars": 17.0,
+      "salt": 0.38,
+      "proteins": 10.0
+    }
+  },
+  {
+    "code": "3229820100234",
+    "name": "Fourrés Chocolat Noir",
+    "brand": "Bjorg",
+    "quantity": "225 g",
+    "category": "Biscuits",
+    "nutriScore": "d",
+    "novaGroup": 4,
+    "imageUrl": "https://images.openfoodfacts.org/images/products/322/982/010/0234/front_fr.246.200.jpg",
+    "ingredients": "Farine de blé* 41%, Chocolat noir* 22% (pâte de cacao*, sucre de canne&quot;, beurre de cacao&quot;), Sucre de canne* roux non raffiné, Farine complète de blé* 16%, Huile de tournesol oléique*, Arôme naturel de vanille, Lait écrémé en poudre, Sel de mer, carbonates d'ammonium, carbonates de sodium, gomme d'acacia*, extraits de romarin* Peut contenir du soja, des œufs, des fruits à coque, des graines de sésame et de la moutarde. *Ingrédients biologiques.",
+    "allergens": [
+      "gluten",
+      "lait",
+      "soja"
+    ],
+    "nutriments": {
+      "energyKcal": 476.0,
+      "fat": 19.0,
+      "saturatedFat": 6.3,
+      "sugars": 27.0,
+      "salt": 0.49,
+      "proteins": 7.6
+    }
+  },
+  {
+    "code": "3175681851849",
+    "name": "Pomme Noisette",
+    "brand": "Gerblé",
+    "quantity": "230 g",
+    "category": "Biscuits",
+    "nutriScore": "b",
+    "novaGroup": 4,
+    "imageUrl": "https://images.openfoodfacts.org/images/products/317/568/185/1849/front_fr.267.200.jpg",
+    "ingredients": "Farine de blé 68,6%, huile de colza, sirop de sucres issu de fruits, jus de pomme concentré 5,3%, noisettes torréfiées 5,3%, germe de blé 5,2%, fibres de chicorée, extrait de malt d'orge, arôme naturel de pomme, émulsifiant : lécithines, poudres à lever (carbonates de potassium, tartrates de potassium), amidon de blé, vitamines (E, PP, B2, B6, B1, B9).",
+    "allergens": [
+      "gluten",
+      "fruits à coque"
+    ],
+    "nutriments": {
+      "energyKcal": 457.0,
+      "fat": 17.0,
+      "saturatedFat": 1.5,
+      "sugars": 11.0,
+      "salt": 0.01,
+      "proteins": 10.0
+    }
+  },
+  {
+    "code": "3251490332080",
+    "name": "Figues et son",
+    "brand": "Gerblé",
+    "quantity": "210 g",
+    "category": "Biscuits",
+    "nutriScore": "b",
+    "novaGroup": 4,
+    "imageUrl": "https://images.openfoodfacts.org/images/products/325/149/033/2080/front_fr.180.200.jpg",
+    "ingredients": "Farine complète de blé 26,5%, farine de blé 26,1%, son de blé 20%, huile de colza, sucre non raffiné, pâte de figues 5,1%, arôme naturel de figue, poudres à lever (carbonates de potassium, carbonates de sodium, acide citrique), arôme naturel, émulsifiant: lécithines.",
+    "allergens": [
+      "gluten"
+    ],
+    "nutriments": {
+      "energyKcal": 450.0,
+      "fat": 18.0,
+      "saturatedFat": 1.6,
+      "sugars": 16.0,
+      "salt": 0.18,
+      "proteins": 9.6
+    }
+  },
+  {
+    "code": "3175681851856",
+    "name": "Biscuit raisins",
+    "brand": "Gerblé",
+    "quantity": "270 g",
+    "category": "Biscuits",
+    "nutriScore": "c",
+    "novaGroup": 4,
+    "imageUrl": "https://images.openfoodfacts.org/images/products/317/568/185/1856/front_fr.210.200.jpg",
+    "ingredients": "Farine de blé 60,4%, huile de colza, sucre non raffiné, pâte de raisins 6,9%, germe de blé 5,1%, amidon de blé, raisins secs 2,8%, fibres de blé, magnésium, émulsifiant lécithines, poudres à lever (tartrates de potassium, carbonates de sodium), arôme naturel, vitamines (B1, B6, B9, D, E).",
+    "allergens": [
+      "gluten"
+    ],
+    "nutriments": {
+      "energyKcal": 441.0,
+      "fat": 14.0,
+      "saturatedFat": 1.2,
+      "sugars": 17.0,
+      "salt": 0.2,
+      "proteins": 8.3
+    }
+  },
+  {
+    "code": "3229820794525",
+    "name": "Avoine chocolat",
+    "brand": "Bjorg",
+    "quantity": "130 g",
+    "category": "Biscuits",
+    "nutriScore": "c",
+    "novaGroup": 4,
+    "imageUrl": "https://images.openfoodfacts.org/images/products/322/982/079/4525/front_fr.142.200.jpg",
+    "ingredients": "Flocons d'avoine* 31%, farine de blé*, huile de colza*, sucre de canne* non raffiné, pépites de chocolat noir* 9% (sucre de canne*, pâte de cacao*, beurre de cacao*), billettes de riz soufflé (farine de riz*, sel), fibres d'acacia*, extrait de cacao*, cacao* maigre en poudre, poudres à lever (carbonates d'ammonium, carbonates de sodium), jaune d'œuf* en poudre, sel marin, antioxydant (extraits de romarin*). Ingrédients biologiques.",
+    "allergens": [
+      "œufs",
+      "gluten"
+    ],
+    "nutriments": {
+      "energyKcal": 454.0,
+      "fat": 18.0,
+      "saturatedFat": 3.2,
+      "sugars": 17.0,
+      "salt": 0.63,
+      "proteins": 8.1
+    }
+  },
+  {
+    "code": "3661344688339",
+    "name": "Yaourt vanille bio de Madagascar",
+    "brand": "Les 2 Vaches",
+    "quantity": "460 g",
+    "category": "Yaourts",
+    "nutriScore": "c",
+    "novaGroup": 3,
+    "imageUrl": "https://images.openfoodfacts.org/images/products/366/134/468/8339/front_fr.54.200.jpg",
+    "ingredients": "LAIT* demi-écrémé pasteurisé équitable (79,6%), sucre de canne* (8%), crème équitable (LAIT), - poudre de LAIT* écrémé, amidon, jus de citron* concentré, extrait de vanille*, ferments lactiques (LAIT). *Issu de l'agriculture biologique Peut contenir : CEREALES CONTENANT DU GLUTEN, FRUITS À COQUE. Lait: Origine France",
+    "allergens": [
+      "lait"
+    ],
+    "nutriments": {
+      "energyKcal": 93.0,
+      "fat": 2.8,
+      "saturatedFat": 2.0,
+      "sugars": 12.7,
+      "salt": 0.14,
+      "proteins": 3.7
+    }
+  },
+  {
+    "code": "3033490004521",
+    "name": "Le Nature",
+    "brand": "Danone",
+    "quantity": "500 g",
+    "category": "Yaourts",
+    "nutriScore": "a",
+    "novaGroup": 1,
+    "imageUrl": "https://images.openfoodfacts.org/images/products/303/349/000/4521/front_fr.111.200.jpg",
+    "ingredients": "LAIT partiellement écrémé à 1 % Mat. Gr. (94,7%), LAIT écrémé concentréou en poudre (5,2%), ferments lactiques (LAIT) LAIT : Origine France",
+    "allergens": [
+      "lait"
+    ],
+    "nutriments": {
+      "energyKcal": 46.0,
+      "fat": 1.0,
+      "saturatedFat": 0.6,
+      "sugars": 5.1,
+      "salt": 0.14,
+      "proteins": 3.8
+    }
+  },
+  {
+    "code": "3023291122005",
+    "name": "Yaos yaourt à la grecque nature",
+    "brand": "Nestlé",
+    "quantity": "4 × 150 g",
+    "category": "Yaourts",
+    "nutriScore": "c",
+    "novaGroup": 3,
+    "imageUrl": "https://images.openfoodfacts.org/images/products/302/329/112/2005/front_fr.67.200.jpg",
+    "ingredients": "Lait entier (83,1%), crème (12,0%) (lait), poudre de lait écrémé, ferments lactiques. Fabriqué en France avec du lait français.",
+    "allergens": [
+      "lait"
+    ],
+    "nutriments": {
+      "energyKcal": 50.4,
+      "fat": 7.9,
+      "saturatedFat": 5.3,
+      "sugars": 3.5,
+      "salt": 0.12,
+      "proteins": 3.1
+    }
+  },
+  {
+    "code": "3661344221772",
+    "name": "Yaourt saveur myrtille sauvage",
+    "brand": "Les 2 Vaches",
+    "quantity": "4 × 115 g",
+    "category": "Yaourts",
+    "nutriScore": "c",
+    "novaGroup": 4,
+    "imageUrl": "https://images.openfoodfacts.org/images/products/366/134/422/1772/front_fr.80.200.jpg",
+    "ingredients": "Lait demi-écrémé bio pasteurisé équitable 74,1%, Myrtille sauvage bio 8,6%, Sucre de canne bio 8%, Crème de lait bio, Poudre de lait écrémé bio, Arôme naturel de myrtille, Pectine de fruits, Ferments lactiques (Lait)",
+    "allergens": [
+      "lait"
+    ],
+    "nutriments": {
+      "energyKcal": 90.43,
+      "fat": 2.6,
+      "saturatedFat": 1.8,
+      "sugars": 13.0,
+      "salt": 0.14,
+      "proteins": 3.5
+    }
+  },
+  {
+    "code": "4056489491217",
+    "name": "Skyr",
+    "brand": "Milbona",
+    "quantity": "450 g",
+    "category": "Yaourts",
+    "nutriScore": "a",
+    "novaGroup": 1,
+    "imageUrl": "https://images.openfoodfacts.org/images/products/405/648/949/1217/front_en.3.200.jpg",
+    "ingredients": "Lait écrémé, ferments lactiques, enzyme coagulante d’origine microbienne selon approvisionnement",
+    "allergens": [
+      "lait"
+    ],
+    "nutriments": {
+      "energyKcal": 62.0,
+      "fat": 0.2,
+      "saturatedFat": 0.13,
+      "sugars": 4.0,
+      "salt": 0.13,
+      "proteins": 11.0
+    }
+  },
+  {
+    "code": "3560070845408",
+    "name": "Yaourt nature au lait entier",
+    "brand": "Carrefour",
+    "quantity": "125 g",
+    "category": "Yaourts",
+    "nutriScore": "b",
+    "novaGroup": 3,
+    "imageUrl": "https://images.openfoodfacts.org/images/products/356/007/084/5408/front_fr.117.200.jpg",
+    "ingredients": "_Lait_ entier bio 96%, poudre de _lait_ écrémé bio, ferments _lactiques_.",
+    "allergens": [
+      "lait"
+    ],
+    "nutriments": {
+      "energyKcal": 63.0,
+      "fat": 3.4,
+      "saturatedFat": 2.1,
+      "sugars": 4.1,
+      "salt": 0.16,
+      "proteins": 3.9
+    }
+  },
+  {
+    "code": "3023290634578",
+    "name": "Yaos le yaourt à la grecque",
+    "brand": "Nestlé",
+    "quantity": "125 g",
+    "category": "Yaourts",
+    "nutriScore": "c",
+    "novaGroup": 3,
+    "imageUrl": "https://images.openfoodfacts.org/images/products/302/329/063/4578/front_en.100.200.jpg",
+    "ingredients": "Lait entier (89,50%), crème (lait) (10,45%), poudre de lait écrémé, ferments lactiques (lait).",
+    "allergens": [
+      "lait"
+    ],
+    "nutriments": {
+      "energyKcal": 102.0,
+      "fat": 7.9,
+      "saturatedFat": 5.3,
+      "sugars": 3.5,
+      "salt": 0.12,
+      "proteins": 3.1
+    }
+  },
+  {
+    "code": "3760020507350",
+    "name": "Pur beurre de cacahuète",
+    "brand": "Naturenvie",
+    "quantity": "350 g",
+    "category": "Pâtes à tartiner",
+    "nutriScore": "b",
+    "novaGroup": 1,
+    "imageUrl": "https://images.openfoodfacts.org/images/products/376/002/050/7350/front_en.403.200.jpg",
+    "ingredients": "CACAHUETES issues de l'agriculture biologique. Peut contenir des traces de FRUITS A COQUE et de graines de SESAME.",
+    "allergens": [
+      "arachides"
+    ],
+    "nutriments": {
+      "energyKcal": 628.0,
+      "fat": 51.0,
+      "saturatedFat": 9.9,
+      "sugars": 5.1,
+      "salt": 0.0,
+      "proteins": 27.0
+    }
+  },
+  {
+    "code": "8052575090254",
+    "name": "Nocciolata bio",
+    "brand": "Rigoni di Asiago",
+    "quantity": "650 g",
+    "category": "Pâtes à tartiner",
+    "nutriScore": "e",
+    "novaGroup": 4,
+    "imageUrl": "https://images.openfoodfacts.org/images/products/805/257/509/0254/front_en.43.200.jpg",
+    "ingredients": "Sucre*, pâte de noisettes* 18,5%, huile de tournesol*, lait écrémé en poudre*, cacao maigre en poudre* 6,5%, beurre de cacao*, émulsifiant: lécithine de soja*, extrait de vanille*, *Biologique",
+    "allergens": [
+      "lait",
+      "fruits à coque",
+      "soja"
+    ],
+    "nutriments": {
+      "energyKcal": 544.0,
+      "fat": 32.0,
+      "saturatedFat": 5.7,
+      "sugars": 51.0,
+      "salt": 0.12,
+      "proteins": 8.1
+    }
+  },
+  {
+    "code": "3017620422003",
+    "name": "Nutella",
+    "brand": "Ferrero",
+    "quantity": "400 g",
+    "category": "Pâtes à tartiner",
+    "nutriScore": "e",
+    "novaGroup": 4,
+    "imageUrl": "https://images.openfoodfacts.org/images/products/301/762/042/2003/front_en.879.200.jpg",
+    "ingredients": "Sucre, huile de palme, NOISETTES 13%, cacao maigre 7,4%, LAIT écrémé en poudre 6,6%, LACTOSERUM en poudre, émulsifiants: lécithines [SOJA), vanilline. Sans gluten.",
+    "allergens": [
+      "lait",
+      "fruits à coque",
+      "soja"
+    ],
+    "nutriments": {
+      "energyKcal": 539.0,
+      "fat": 30.9,
+      "saturatedFat": 10.6,
+      "sugars": 56.3,
+      "salt": 0.11,
+      "proteins": 6.3
+    }
+  },
+  {
+    "code": "8052575090230",
+    "name": "Nocciolata",
+    "brand": "Rigoni di Asiago",
+    "quantity": "250 g",
+    "category": "Pâtes à tartiner",
+    "nutriScore": "e",
+    "novaGroup": 4,
+    "imageUrl": "https://images.openfoodfacts.org/images/products/805/257/509/0230/front_en.58.200.jpg",
+    "ingredients": "Sucre, pâte de _noisettes_ 18,5%, huile de tournesol, _lait_ écrémé en poudre, cacao maigre en poudre 6,5%, beurre de cacao, lécithine de _soja_, extrait de vanille.",
+    "allergens": [
+      "lait",
+      "fruits à coque",
+      "soja"
+    ],
+    "nutriments": {
+      "energyKcal": 544.0,
+      "fat": 32.0,
+      "saturatedFat": 5.7,
+      "sugars": 51.0,
+      "salt": 0.12,
+      "proteins": 8.1
+    }
+  },
+  {
+    "code": "3327272107969",
+    "name": "Peanut 100 %",
+    "brand": "Menguy's",
+    "quantity": "454 g",
+    "category": "Pâtes à tartiner",
+    "nutriScore": "a",
+    "novaGroup": 1,
+    "imageUrl": "https://images.openfoodfacts.org/images/products/332/727/210/7969/front_en.59.200.jpg",
+    "ingredients": "Cacahuetes 100%",
+    "allergens": [
+      "arachides"
+    ],
+    "nutriments": {
+      "energyKcal": 610.0,
+      "fat": 48.0,
+      "saturatedFat": 5.8,
+      "sugars": 6.2,
+      "salt": 0.05,
+      "proteins": 28.0
+    }
+  },
+  {
+    "code": "3155250358788",
+    "name": "Margarine bio doux",
+    "brand": "Primevère",
+    "quantity": "250 g",
+    "category": "Pâtes à tartiner",
+    "nutriScore": "c",
+    "novaGroup": 4,
+    "imageUrl": "https://images.openfoodfacts.org/images/products/315/525/035/8788/front_en.166.200.jpg",
+    "ingredients": "Huiles végétales biologiques non hydrogénées 54.5% (colza*, palme*), eau, émulsifiant (lécithine de tournesol biologique*), sel, arôme naturel de noix de coco , jus de citron concentré biologique*",
+    "allergens": [],
+    "nutriments": {
+      "energyKcal": 485.0,
+      "fat": 55.0,
+      "saturatedFat": 14.0,
+      "sugars": 0.0,
+      "salt": 0.4,
+      "proteins": 0.0
+    }
+  },
+  {
+    "code": "3155251205296",
+    "name": "Tartine Doux",
+    "brand": "Primevère",
+    "quantity": "250 g",
+    "category": "Pâtes à tartiner",
+    "nutriScore": "c",
+    "novaGroup": 4,
+    "imageUrl": "https://images.openfoodfacts.org/images/products/315/525/120/5296/front_en.149.200.jpg",
+    "ingredients": "Huiles végétales non hydrogénées 54% (de colza&quot; origine France, coco, palme*, palmiste, lin&quot;), eau, émulsifiant (lécithines de tournesol&quot;), sel, arômes naturels, jus de citron concentré, antioxydant (extrait de romarin&quot;), colorant (bêta-carotène), vitamine B1. &quot;Ingrédients d'origine végétale.",
+    "allergens": [],
+    "nutriments": {
+      "energyKcal": 495.0,
+      "fat": 55.0,
+      "saturatedFat": 15.0,
+      "sugars": 0.0,
+      "salt": 0.4,
+      "proteins": 0.0
+    }
+  },
+  {
+    "code": "5449000214799",
+    "name": "Coca-Cola sans sucres",
+    "brand": "Coca-Cola",
+    "quantity": "33 cl",
+    "category": "Boissons",
+    "nutriScore": "c",
+    "novaGroup": 4,
+    "imageUrl": "https://images.openfoodfacts.org/images/products/544/900/021/4799/front_en.363.200.jpg",
+    "ingredients": "Eau gazeifiée; colorant: E150d; acidifiant: acide phosphorique; édulcorants: aspartame, acésulfame-K, glycosides de stéviol produits par voie enzymatique; aromes naturels; arôme caféine; correcteur d'acidité: citrates de Sodium",
+    "allergens": [],
+    "nutriments": {
+      "energyKcal": 0.3,
+      "fat": 0.0,
+      "saturatedFat": 0.0,
+      "sugars": 0.0,
+      "salt": 0.01,
+      "proteins": 0.0
+    }
+  },
+  {
+    "code": "3124480186560",
+    "name": "Oasis Tropical",
+    "brand": "Oasis",
+    "quantity": "33 cl",
+    "category": "Boissons",
+    "nutriScore": "e",
+    "novaGroup": 4,
+    "imageUrl": "https://images.openfoodfacts.org/images/products/312/448/018/6560/front_fr.120.200.jpg",
+    "ingredients": "eau de source 80%, jus de fruits à base de concentrés 12% (orange 6,5%, pomme, fruit de la passion 0,1%, mangue 0,08%), sucre, sirop de fructose, acidifiant (acide citrique, acide malique), arôme naturel, antioxydant (acide ascorbique),  colorant (extrait de paprika), arôme naturel d'orange.",
+    "allergens": [],
+    "nutriments": {
+      "energyKcal": 86.0,
+      "fat": 0.0,
+      "saturatedFat": 0.0,
+      "sugars": 6.0,
+      "salt": 0.03,
+      "proteins": 0.1
+    }
+  },
+  {
+    "code": "5000112611861",
+    "name": "Coca-Cola goût original 1,75 L",
+    "brand": "Coca-Cola",
+    "quantity": "1,75 L",
+    "category": "Boissons",
+    "nutriScore": "e",
+    "novaGroup": 4,
+    "imageUrl": "https://images.openfoodfacts.org/images/products/500/011/261/1861/front_fr.176.200.jpg",
+    "ingredients": "Eau gazéifiée, sucre, colorant: E150d, acidifiant : acide phosphorique, arômes naturels, caféine.",
+    "allergens": [],
+    "nutriments": {
+      "energyKcal": 42.0,
+      "fat": 0.0,
+      "saturatedFat": 0.0,
+      "sugars": 10.6,
+      "salt": 0.0,
+      "proteins": 0.0
+    }
+  },
+  {
+    "code": "5449000267412",
+    "name": "Coca-Cola goût original",
+    "brand": "Coca-Cola",
+    "quantity": "1,25 L",
+    "category": "Boissons",
+    "nutriScore": "e",
+    "novaGroup": 4,
+    "imageUrl": "https://images.openfoodfacts.org/images/products/544/900/026/7412/front_en.94.200.jpg",
+    "ingredients": "eau gazéifiée, sucre, colorant (E150d), acidifiant (acide phosphorique), arômes naturels, caféine",
+    "allergens": [],
+    "nutriments": {
+      "energyKcal": 42.0,
+      "fat": 0.0,
+      "saturatedFat": 0.0,
+      "sugars": 10.6,
+      "salt": 0.0,
+      "proteins": 0.0
+    }
+  },
+  {
+    "code": "3124480184344",
+    "name": "Orangina et sa pulpe",
+    "brand": "Orangina",
+    "quantity": "33 cl",
+    "category": "Boissons",
+    "nutriScore": "e",
+    "novaGroup": 4,
+    "imageUrl": "https://images.openfoodfacts.org/images/products/312/448/018/4344/front_fr.170.200.jpg",
+    "ingredients": "Eau gazéifiée, jus d'agrumes à base de concentrés 12% (orange 10%, citron, mandarine, pamplemousse), sucre, pulpe d'orange et mandarine 2%, extrait de zeste d'orange, arômes naturels d'orange,",
+    "allergens": [],
+    "nutriments": {
+      "energyKcal": 38.0,
+      "fat": 0.01,
+      "saturatedFat": 0.0,
+      "sugars": 8.9,
+      "salt": 0.1,
+      "proteins": 0.1
+    }
+  },
+  {
+    "code": "5410221305085",
+    "name": "Schweppes Agrumes",
+    "brand": "Schweppes",
+    "quantity": "33 cl",
+    "category": "Boissons",
+    "nutriScore": "e",
+    "novaGroup": 4,
+    "imageUrl": "https://images.openfoodfacts.org/images/products/541/022/130/5085/front_en.128.200.jpg",
+    "ingredients": "eau gazéifiée, sucre, extraits d'orange, acidifiant: acide citrique, conservateur : E 202, édulcorants: acésulfame K et sucralose, amidon modifie, antioxydant: acide ascorbique, arômes naturels d'agrumes avec autres arômes naturels, stabilisant E445, colorant E142",
+    "allergens": [],
+    "nutriments": {
+      "energyKcal": 130.0,
+      "fat": 0.0,
+      "saturatedFat": 0.0,
+      "sugars": 5.7,
+      "salt": 0.01,
+      "proteins": 0.0
+    }
+  },
+  {
+    "code": "3502110009357",
+    "name": "Pepsi Zéro sucres",
+    "brand": "Pepsi",
+    "quantity": "1,5 L",
+    "category": "Boissons",
+    "nutriScore": "c",
+    "novaGroup": 4,
+    "imageUrl": "https://images.openfoodfacts.org/images/products/350/211/000/9357/front_en.101.200.jpg",
+    "ingredients": "Eau gazéifiée,colorant (caramel au sulfite d'ammonium),édulcorants (aspartame**, acésulfame K),acidifiants (acide phosphorique, acide citrique),correcteur d'acidité (citrate de sodium),arômes (dont extraits végétaux et caféine),**Contient une source de phénylalanine",
+    "allergens": [],
+    "nutriments": {
+      "energyKcal": 0.4,
+      "fat": 0.0,
+      "saturatedFat": 0.0,
+      "sugars": 0.0,
+      "salt": 0.01,
+      "proteins": 0.0
+    }
+  },
+  {
+    "code": "3046920022651",
+    "name": "Noir Intense",
+    "brand": "Lindt",
+    "quantity": "100 g",
+    "category": "Chocolats",
+    "nutriScore": "e",
+    "novaGroup": 3,
+    "imageUrl": "https://images.openfoodfacts.org/images/products/304/692/002/2651/front_en.159.200.jpg",
+    "ingredients": "Pâte de cacao, sucre, beurre de cacao, vanille.\r\n\r\nPeut contenir des fruits à coque, du lait, du soja et des graines de sésame.",
+    "allergens": [],
+    "nutriments": {
+      "energyKcal": 566.0,
+      "fat": 41.0,
+      "saturatedFat": 24.0,
+      "sugars": 30.0,
+      "salt": 0.02,
+      "proteins": 9.5
+    }
+  },
+  {
+    "code": "3046920022606",
+    "name": "Excellence 85 % cacao",
+    "brand": "Lindt",
+    "quantity": "100 g",
+    "category": "Chocolats",
+    "nutriScore": "e",
+    "novaGroup": 3,
+    "imageUrl": "https://images.openfoodfacts.org/images/products/304/692/002/2606/front_en.102.200.jpg",
+    "ingredients": "Pâte de cacao, cacao maigre, beurre de cacao, cassonade, vanille. Peut contenir du lait, des fruits à coque, du soja et des graines de sésame. 3 046920 022606",
+    "allergens": [],
+    "nutriments": {
+      "energyKcal": 584.0,
+      "fat": 46.0,
+      "saturatedFat": 27.0,
+      "sugars": 15.0,
+      "salt": 0.02,
+      "proteins": 12.5
+    }
+  },
+  {
+    "code": "7613035040823",
+    "name": "Dessert Noir",
+    "brand": "Nestlé",
+    "quantity": "205 g",
+    "category": "Chocolats",
+    "nutriScore": "e",
+    "novaGroup": 4,
+    "imageUrl": "https://images.openfoodfacts.org/images/products/761/303/504/0823/front_en.357.200.jpg",
+    "ingredients": "Sucre, pâte de cacao¹ (Afrique de l'Ouest, Amérique du Sud), beurre de cacao¹, émulsifiant (lécithines), arôme naturel de vanille de Madagascar. Peut contenir : LAIT, FRUITS À COQUE. ¹Bilan massique certifié Rainforest Alliance. www.ra.org/fr",
+    "allergens": [],
+    "nutriments": {
+      "energyKcal": 548.0,
+      "fat": 34.0,
+      "saturatedFat": 20.2,
+      "sugars": 46.4,
+      "salt": 0.01,
+      "proteins": 6.0
+    }
+  },
+  {
+    "code": "3700214611548",
+    "name": "Noir équitable 85 % Pérou",
+    "brand": "Alter Eco",
+    "quantity": "100 g",
+    "category": "Chocolats",
+    "nutriScore": "d",
+    "novaGroup": 3,
+    "imageUrl": "https://images.openfoodfacts.org/images/products/370/021/461/1548/front_fr.170.200.jpg",
+    "ingredients": "Pâte de cacao (Pérou), sucre de canne, beurre de cacao. Peut contenir du soja, du lait et des fruits à coque.",
+    "allergens": [],
+    "nutriments": {
+      "energyKcal": 631.0,
+      "fat": 53.0,
+      "saturatedFat": 32.0,
+      "sugars": 14.0,
+      "salt": 0.01,
+      "proteins": 8.1
+    }
+  },
+  {
+    "code": "3046920027885",
+    "name": "Excellence Noir Fleur de Sel",
+    "brand": "Lindt",
+    "quantity": "100 g",
+    "category": "Chocolats",
+    "nutriScore": "e",
+    "novaGroup": 4,
+    "imageUrl": "https://images.openfoodfacts.org/images/products/304/692/002/7885/front_fr.122.200.jpg",
+    "ingredients": "sucre, pâte de cacao, beurre de cacao, beurre _laitier_ concentré, émulsifiant (lécithine de _soja_), fleur de sel 0,3%.\r\nCacao : 47% minimum.",
+    "allergens": [
+      "lait",
+      "soja"
+    ],
+    "nutriments": {
+      "energyKcal": 561.9,
+      "fat": 32.0,
+      "saturatedFat": 19.0,
+      "sugars": 47.0,
+      "salt": 0.37,
+      "proteins": 5.7
+    }
+  },
+  {
+    "code": "3760091722508",
+    "name": "Chocolat noir 85 % Madagascar",
+    "brand": "Ethiquable",
+    "quantity": "100 g",
+    "category": "Chocolats",
+    "nutriScore": "d",
+    "novaGroup": 3,
+    "imageUrl": "https://images.openfoodfacts.org/images/products/376/009/172/2508/front_fr.154.200.jpg",
+    "ingredients": "Pâte de cacao de Madagascar 75%, sucre de canne, beurre de cacao 10%",
+    "allergens": [],
+    "nutriments": {
+      "energyKcal": 615.0,
+      "fat": 51.0,
+      "saturatedFat": 31.0,
+      "sugars": 14.0,
+      "salt": 0.0,
+      "proteins": 11.0
+    }
+  },
+  {
+    "code": "7622210995087",
+    "name": "Chocolat noir noisettes entières",
+    "brand": "Côte d'Or",
+    "quantity": "180 g",
+    "category": "Chocolats",
+    "nutriScore": "e",
+    "novaGroup": 4,
+    "imageUrl": "https://images.openfoodfacts.org/images/products/762/221/099/5087/front_fr.242.200.jpg",
+    "ingredients": "Sucre, pâte de cacao, NOISETTES (24%), beurre de cacao, BEURRE concentré, émulsifiant (lécithines de SOJA), arôme naturel de vanille, LAIT écrémé en poudre.",
+    "allergens": [
+      "lait",
+      "fruits à coque",
+      "soja"
+    ],
+    "nutriments": {
+      "energyKcal": 570.0,
+      "fat": 39.0,
+      "saturatedFat": 16.0,
+      "sugars": 40.0,
+      "salt": 0.01,
+      "proteins": 7.3
+    }
+  }
+]
