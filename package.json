@@ -62,6 +62,9 @@
     "testPathIgnorePatterns": [
       "/node_modules/",
       "/exercises/"
+    ],
+    "setupFiles": [
+      "<rootDir>/jest.setup.ts"
     ]
   }
 }

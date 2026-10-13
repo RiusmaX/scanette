@@ -25,7 +25,11 @@ Ils ne touchent pas à l'application, ils se lancent avec Node :
 | 2 · JavaScript moderne et asynchrone | `exercises/tp02-modern-js` | `npm run ex:tp2` |
 | 3 · TypeScript | `exercises/tp03-typescript` | `npm run ex:tp3` |
 
+Les corrigés sont sur le tag `exercises-solution` : `git switch --detach exercises-solution`.
+
 ## Les étapes de l'application
+
+La branche `main` contient l'application terminée. Pour suivre la formation, on part du tag `tp04-start`.
 
 Chaque TP part d'un tag et sa correction est le tag suivant. En retard ou bloqué ? Repars de la correction :
 
