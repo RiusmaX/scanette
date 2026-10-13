@@ -1,54 +1,64 @@
-// TP 1 · Les bases de JavaScript
-// Complète chaque fonction, puis lance les tests :
-//   node --test exercises/tp01-js-basics/
-// Un test vert = exercice réussi. Commence par le 1, ils sont rangés du plus simple au plus riche.
-// Le mot-clé `export` rend la fonction visible depuis un autre fichier (on le détaille cet après-midi).
+// TP 1 · Les bases de JavaScript · CORRIGÉ
 
-// 1. Renvoie le nombre de produits du tableau.
+// 1. La propriété length d'un tableau donne son nombre d'éléments.
 export function countProducts(products) {
-  // À toi de jouer
+  return products.length;
 }
 
-// 2. Renvoie le nom suivi de la marque entre parenthèses : « Prince (LU) ».
+// 2. Gabarit de chaîne (template literal) : les accolades insèrent une valeur.
 export function formatName(product) {
-  // À toi de jouer
+  return `${product.name} (${product.brand})`;
 }
 
-// 3. Renvoie un tableau contenant uniquement les noms des produits.
+// 3. map crée un nouveau tableau en transformant chaque élément.
 export function getNames(products) {
-  // À toi de jouer
+  return products.map((product) => product.name);
 }
 
-// 4. Renvoie les produits dont le Nutri-Score vaut `grade` (« a », « b »…).
+// 4. filter garde les éléments pour lesquels la fonction renvoie true.
 export function filterByNutriScore(products, grade) {
-  // À toi de jouer
+  return products.filter((product) => product.nutriScore === grade);
 }
 
-// 5. Renvoie le produit dont le code-barres vaut `code`, ou `undefined` s'il n'existe pas.
+// 5. find renvoie le premier élément trouvé, ou undefined.
 export function findByCode(products, code) {
-  // À toi de jouer
+  return products.find((product) => product.code === code);
 }
 
-// 6. Un produit est « sain » si son Nutri-Score est « a » ou « b »
-//    ET si son groupe NOVA est connu et inférieur ou égal à 2.
+// 6. On vérifie que novaGroup n'est pas null AVANT de le comparer.
 export function isHealthy(product) {
-  // À toi de jouer
+  const goodScore = product.nutriScore === 'a' || product.nutriScore === 'b';
+  const lowProcessing = product.novaGroup !== null && product.novaGroup <= 2;
+  return goodScore && lowProcessing;
 }
 
-// 7. Renvoie la moyenne des sucres (en g pour 100 g), arrondie à une décimale.
-//    Les produits dont `sugars` vaut null sont ignorés. Tableau vide ou sans valeur : renvoie 0.
+// 7. Boucle classique : on additionne et on compte seulement les valeurs connues.
 export function averageSugars(products) {
-  // À toi de jouer
+  let total = 0;
+  let count = 0;
+  for (const product of products) {
+    if (product.sugars !== null) {
+      total += product.sugars;
+      count++;
+    }
+  }
+  if (count === 0) {
+    return 0;
+  }
+  // Arrondi à une décimale : on multiplie par 10, on arrondit, on divise par 10.
+  return Math.round((total / count) * 10) / 10;
 }
 
-// 8. Renvoie un objet qui compte les produits par catégorie :
-//    { 'Biscuits': 1, 'Céréales': 2, ... }
+// 8. Un objet sert de dictionnaire : la clé est la catégorie, la valeur le compteur.
 export function countByCategory(products) {
-  // À toi de jouer
+  const counts = {};
+  for (const product of products) {
+    counts[product.category] = (counts[product.category] ?? 0) + 1;
+  }
+  return counts;
 }
 
-// Bonus. Renvoie une COPIE du tableau triée par nom (ordre alphabétique français),
-//        sans modifier le tableau d'origine. Indice : localeCompare.
+// Bonus. sort modifie le tableau sur place : on trie donc une copie.
 export function sortByName(products) {
-  // À toi de jouer
+  return [...products].sort((a, b) => a.name.localeCompare(b.name, 'fr'));
 }

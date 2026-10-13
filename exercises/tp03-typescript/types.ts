@@ -1,17 +1,16 @@
-// TP 3 · Étape 1 · Décris les données avec des types.
-// Vérifie ton travail avec :
-//   npx tsc -p exercises/tp03-typescript
+// TP 3 · Étape 1 · CORRIGÉ
 
-// 1. Crée un type union `NutriScore` qui n'accepte que 'a', 'b', 'c', 'd' ou 'e'.
-export type NutriScore = string; // À remplacer
+// Un type union de littéraux : seules ces cinq chaînes sont acceptées.
+export type NutriScore = 'a' | 'b' | 'c' | 'd' | 'e';
 
-// 2. Crée un type union `NovaGroup` qui n'accepte que 1, 2, 3 ou 4.
-export type NovaGroup = number; // À remplacer
+export type NovaGroup = 1 | 2 | 3 | 4;
 
-// 3. Complète l'interface Product à partir des produits du fichier products.ts :
-//    code, name, brand, category (des chaînes), nutriScore (NutriScore),
-//    novaGroup (NovaGroup ou null), sugars (nombre ou null).
 export interface Product {
   code: string;
-  // À compléter
+  name: string;
+  brand: string;
+  category: string;
+  nutriScore: NutriScore;
+  novaGroup: NovaGroup | null; // null = valeur inconnue
+  sugars: number | null;
 }
