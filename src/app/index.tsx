@@ -1,8 +1,9 @@
 import { useEffect, useState } from 'react';
-import { ActivityIndicator, Button, ScrollView, StyleSheet, Text, View } from 'react-native';
+import { ActivityIndicator, Button, ScrollView, StyleSheet, Text, useWindowDimensions, View } from 'react-native';
 
 import { ProductCard } from '@/components/ProductCard';
 import { fetchCatalog } from '@/services/catalogService';
+import { colors, fontSizes, spacing } from '@/theme/theme';
 import type { Product } from '@/types/product';
 
 const PAGE_SIZE = 5;
@@ -14,6 +15,9 @@ export default function HomeScreen() {
   const [visibleCount, setVisibleCount] = useState(PAGE_SIZE);
   // Changer cette valeur relance le chargement (bouton « Réessayer »).
   const [reloadKey, setReloadKey] = useState(0);
+  // Bonus du TP 6 : la largeur de l'écran, mise à jour quand on tourne le téléphone.
+  const { width } = useWindowDimensions();
+  const isWide = width >= 600;
 
   // Effet de montage : il s'exécute après le premier affichage, puis à chaque changement de reloadKey.
   useEffect(() => {
@@ -71,12 +75,16 @@ export default function HomeScreen() {
     <ScrollView contentContainerStyle={styles.container}>
       <Text style={styles.title}>Scanette</Text>
       <LastUpdate />
-      <Text>
+      <Text style={styles.subtitle}>
         {visibleProducts.length} produits affichés sur {products.length}
       </Text>
-      {visibleProducts.map((product) => (
-        <ProductCard key={product.code} product={product} />
-      ))}
+      <View style={isWide ? styles.grid : undefined}>
+        {visibleProducts.map((product) => (
+          <View key={product.code} style={isWide ? styles.gridItem : undefined}>
+            <ProductCard product={product} />
+          </View>
+        ))}
+      </View>
       {visibleCount < products.length ? (
         <Button title="Voir plus" onPress={() => setVisibleCount(visibleCount + PAGE_SIZE)} />
       ) : null}
@@ -97,21 +105,36 @@ function LastUpdate() {
     return () => clearInterval(intervalId);
   }, []);
 
-  return <Text>Mis à jour il y a {seconds} s</Text>;
+  return <Text style={styles.subtitle}>Mis à jour il y a {seconds} s</Text>;
 }
 
 const styles = StyleSheet.create({
   container: {
-    padding: 16,
+    padding: spacing.lg,
+    gap: spacing.sm,
+    backgroundColor: colors.background,
   },
   centered: {
     flex: 1,
     alignItems: 'center',
     justifyContent: 'center',
-    gap: 12,
+    gap: spacing.md,
   },
   title: {
-    fontSize: 32,
+    fontSize: fontSizes.heading,
     fontWeight: 'bold',
+    color: colors.primary,
+  },
+  subtitle: {
+    color: colors.textMuted,
+  },
+  // Sur un écran large : deux colonnes. flexWrap fait passer les cartes à la ligne.
+  grid: {
+    flexDirection: 'row',
+    flexWrap: 'wrap',
+    justifyContent: 'space-between',
+  },
+  gridItem: {
+    width: '49%',
   },
 });

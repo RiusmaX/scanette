@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { Image, Pressable, StyleSheet, Text, View } from 'react-native';
 
+import { colors, fontSizes, monospaceFont, radius, spacing } from '@/theme/theme';
 import type { Product } from '@/types/product';
 
 import { NutriScoreBadge } from './NutriScoreBadge';
@@ -9,43 +10,88 @@ type ProductCardProps = {
   product: Product;
 };
 
-// Une carte affiche un produit : image, nom, marque, Nutri-Score et bouton favori.
 export function ProductCard({ product }: ProductCardProps) {
-  // État local : chaque carte se souvient si elle est en favori.
-  // (Au TP 12, cet état deviendra global pour être partagé entre les écrans.)
   const [isFavorite, setIsFavorite] = useState(false);
 
   return (
+    // La carte est une ligne : image | informations | actions.
     <View style={styles.card}>
-      {product.imageUrl ? <Image source={{ uri: product.imageUrl }} style={styles.image} /> : null}
-      <Text style={styles.name}>{product.name}</Text>
-      <Text>{product.brand}</Text>
-      <NutriScoreBadge grade={product.nutriScore} />
-      <Pressable onPress={() => setIsFavorite(!isFavorite)}>
-        <Text style={styles.favorite}>{isFavorite ? '♥ En favori' : '♡ Ajouter aux favoris'}</Text>
-      </Pressable>
+      {product.imageUrl ? (
+        <Image source={{ uri: product.imageUrl }} style={styles.image} />
+      ) : (
+        <View style={[styles.image, styles.imagePlaceholder]} />
+      )}
+
+      {/* flex: 1 : la colonne du milieu prend toute la place restante. */}
+      <View style={styles.info}>
+        <Text style={styles.name} numberOfLines={2}>
+          {product.name}
+        </Text>
+        <Text style={styles.brand}>
+          {product.brand}
+          {product.quantity ? ` · ${product.quantity}` : ''}
+        </Text>
+        <Text style={styles.code}>{product.code}</Text>
+      </View>
+
+      <View style={styles.actions}>
+        <NutriScoreBadge grade={product.nutriScore} />
+        <Pressable onPress={() => setIsFavorite(!isFavorite)} hitSlop={8}>
+          <Text style={[styles.favorite, isFavorite && styles.favoriteActive]}>{isFavorite ? '♥' : '♡'}</Text>
+        </Pressable>
+      </View>
     </View>
   );
 }
 
 const styles = StyleSheet.create({
   card: {
-    padding: 12,
-    marginBottom: 12,
-    borderWidth: 1,
-    borderColor: '#DDDDDD',
-    gap: 6,
+    flexDirection: 'row', // en React Native, l'axe principal est vertical par défaut : on le passe en ligne
+    alignItems: 'center',
+    gap: spacing.md,
+    padding: spacing.md,
+    marginBottom: spacing.md,
+    backgroundColor: colors.surface,
+    borderRadius: radius.md,
+    // boxShadow fonctionne sur iOS et Android avec la nouvelle architecture.
+    boxShadow: '0 1px 4px rgba(0, 0, 0, 0.12)',
   },
   image: {
-    width: 80,
-    height: 80,
+    width: 64,
+    height: 64,
+    borderRadius: radius.sm,
     resizeMode: 'contain',
   },
+  imagePlaceholder: {
+    backgroundColor: colors.border,
+  },
+  info: {
+    flex: 1,
+    gap: spacing.xs,
+  },
   name: {
-    fontSize: 18,
-    fontWeight: 'bold',
+    fontSize: fontSizes.title,
+    fontWeight: '600',
+    color: colors.text,
+  },
+  brand: {
+    fontSize: fontSizes.body,
+    color: colors.textMuted,
+  },
+  code: {
+    fontSize: fontSizes.small,
+    fontFamily: monospaceFont,
+    color: colors.textMuted,
+  },
+  actions: {
+    alignItems: 'center',
+    gap: spacing.sm,
   },
   favorite: {
-    color: '#C2185B',
+    fontSize: 24,
+    color: colors.textMuted,
+  },
+  favoriteActive: {
+    color: colors.favorite,
   },
 });
