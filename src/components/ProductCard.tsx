@@ -1,7 +1,7 @@
-import { Link } from 'expo-router';
-import { useState } from 'react';
+import { router } from 'expo-router';
 import { Image, Pressable, StyleSheet, Text, View } from 'react-native';
 
+import { useFavorites } from '@/contexts/FavoritesContext';
 import { colors, fontSizes, monospaceFont, radius, spacing } from '@/theme/theme';
 import type { Product } from '@/types/product';
 
@@ -13,37 +13,40 @@ type ProductCardProps = {
 };
 
 export function ProductCard({ product }: ProductCardProps) {
-  const [isFavorite, setIsFavorite] = useState(false);
+  // L'état ne vit plus dans la carte : il vient du contexte partagé.
+  const { isFavorite, toggleFavorite } = useFavorites();
 
   return (
-    // Link + asChild : le Pressable devient le lien vers la fiche produit.
-    <Link href={{ pathname: '/product/[code]', params: { code: product.code } }} asChild>
-      {/* La carte est une ligne : image | informations | actions. */}
-      <Pressable style={styles.card}>
-        {product.imageUrl ? (
-          <Image source={{ uri: product.imageUrl }} style={styles.image} />
-        ) : (
-          <View style={[styles.image, styles.imagePlaceholder]} />
-        )}
+    // La carte est une ligne : image | informations | actions.
+    // On navigue avec router.push plutôt qu'avec <Link> : la carte contient un autre bouton (le cœur),
+    // et un bouton à l'intérieur d'un lien déclencherait aussi la navigation sur le web.
+    <Pressable
+      style={styles.card}
+      onPress={() => router.push({ pathname: '/product/[code]', params: { code: product.code } })}
+    >
+      {product.imageUrl ? (
+        <Image source={{ uri: product.imageUrl }} style={styles.image} />
+      ) : (
+        <View style={[styles.image, styles.imagePlaceholder]} />
+      )}
 
-        {/* flex: 1 : la colonne du milieu prend toute la place restante. */}
-        <View style={styles.info}>
-          <Text style={styles.name} numberOfLines={2}>
-            {product.name}
-          </Text>
-          <Text style={styles.brand}>
-            {product.brand}
-            {product.quantity ? ` · ${product.quantity}` : ''}
-          </Text>
-          <Text style={styles.code}>{product.code}</Text>
-        </View>
+      {/* flex: 1 : la colonne du milieu prend toute la place restante. */}
+      <View style={styles.info}>
+        <Text style={styles.name} numberOfLines={2}>
+          {product.name}
+        </Text>
+        <Text style={styles.brand}>
+          {product.brand}
+          {product.quantity ? ` · ${product.quantity}` : ''}
+        </Text>
+        <Text style={styles.code}>{product.code}</Text>
+      </View>
 
-        <View style={styles.actions}>
-          <NutriScoreBadge grade={product.nutriScore} />
-          <FavoriteButton isFavorite={isFavorite} onToggle={() => setIsFavorite(!isFavorite)} />
-        </View>
-      </Pressable>
-    </Link>
+      <View style={styles.actions}>
+        <NutriScoreBadge grade={product.nutriScore} />
+        <FavoriteButton isFavorite={isFavorite(product.code)} onToggle={() => toggleFavorite(product)} />
+      </View>
+    </Pressable>
   );
 }
 

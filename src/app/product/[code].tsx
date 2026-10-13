@@ -3,9 +3,11 @@ import { useCallback, useState } from 'react';
 import { ActivityIndicator, Pressable, ScrollView, StyleSheet, Text, View } from 'react-native';
 
 import { ElasticImage } from '@/components/ElasticImage';
+import { FavoriteButton } from '@/components/FavoriteButton';
 import { NutriScoreBadge } from '@/components/NutriScoreBadge';
 import { NutrimentsTable } from '@/components/NutrimentsTable';
 import { ReviewList } from '@/components/ReviewList';
+import { useFavorites } from '@/contexts/FavoritesContext';
 import { useProduct } from '@/hooks/useProduct';
 import { getReviews, type Review } from '@/services/reviews';
 import { colors, fontSizes, monospaceFont, radius, spacing } from '@/theme/theme';
@@ -20,6 +22,7 @@ export default function ProductScreen() {
   const { code } = useLocalSearchParams<{ code: string }>();
   const { product, source, isLoading, error } = useProduct(code);
   const [reviews, setReviews] = useState<Review[]>([]);
+  const { isFavorite, toggleFavorite } = useFavorites();
 
   // useFocusEffect : se relance chaque fois que l'écran revient au premier plan,
   // par exemple quand on ferme la modale d'avis.
@@ -53,7 +56,10 @@ export default function ProductScreen() {
           </Text>
           <Text style={styles.code}>{product.code}</Text>
         </View>
-        <NutriScoreBadge grade={product.nutriScore} />
+        <View style={styles.headerActions}>
+          <NutriScoreBadge grade={product.nutriScore} />
+          <FavoriteButton isFavorite={isFavorite(product.code)} onToggle={() => toggleFavorite(product)} />
+        </View>
       </View>
 
       <View style={styles.sourceRow}>
@@ -108,6 +114,10 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'flex-start',
     gap: spacing.md,
+  },
+  headerActions: {
+    alignItems: 'center',
+    gap: spacing.sm,
   },
   headerText: {
     flex: 1,

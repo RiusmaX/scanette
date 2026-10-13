@@ -1,23 +1,81 @@
-import { StyleSheet, Text, View } from 'react-native';
+import { Alert, FlatList, Pressable, StyleSheet, Text, View } from 'react-native';
 
-import { colors } from '@/theme/theme';
+import { ProductCard } from '@/components/ProductCard';
+import { useFavorites } from '@/contexts/FavoritesContext';
+import { colors, fontSizes, spacing } from '@/theme/theme';
 
-// Écran provisoire : les favoris partagés arrivent au TP 12.
 export default function FavoritesScreen() {
+  const { state, clearFavorites } = useFavorites();
+
+  function confirmClear() {
+    // Une action destructrice se confirme.
+    Alert.alert('Tout effacer ?', 'Tes favoris seront supprimés de ce téléphone.', [
+      { text: 'Annuler', style: 'cancel' },
+      { text: 'Effacer', style: 'destructive', onPress: clearFavorites },
+    ]);
+  }
+
   return (
-    <View style={styles.container}>
-      <Text style={styles.text}>Tes favoris arriveront au TP 12.</Text>
-    </View>
+    <FlatList
+      data={state.items}
+      keyExtractor={(item) => item.code}
+      renderItem={({ item }) => <ProductCard product={item} />}
+      contentContainerStyle={styles.list}
+      ListHeaderComponent={
+        state.items.length > 0 ? (
+          <View style={styles.header}>
+            <Text style={styles.count}>{state.items.length} favoris</Text>
+            <Pressable onPress={confirmClear} hitSlop={8}>
+              <Text style={styles.clear}>Tout effacer</Text>
+            </Pressable>
+          </View>
+        ) : null
+      }
+      ListEmptyComponent={
+        <View style={styles.empty}>
+          <Text style={styles.emptyIcon}>♡</Text>
+          <Text style={styles.emptyText}>
+            {state.isHydrated
+              ? 'Aucun favori pour l’instant. Touche le cœur d’un produit pour le garder ici.'
+              : 'Chargement…'}
+          </Text>
+        </View>
+      }
+    />
   );
 }
 
 const styles = StyleSheet.create({
-  container: {
+  list: {
+    padding: spacing.lg,
+    flexGrow: 1,
+  },
+  header: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    marginBottom: spacing.md,
+  },
+  count: {
+    color: colors.textMuted,
+  },
+  clear: {
+    color: colors.danger,
+    fontWeight: '600',
+  },
+  empty: {
     flex: 1,
     alignItems: 'center',
     justifyContent: 'center',
+    gap: spacing.sm,
   },
-  text: {
+  emptyIcon: {
+    fontSize: 48,
+    color: colors.border,
+  },
+  emptyText: {
+    textAlign: 'center',
     color: colors.textMuted,
+    fontSize: fontSizes.body,
+    maxWidth: 260,
   },
 });
