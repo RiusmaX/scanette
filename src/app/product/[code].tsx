@@ -1,11 +1,11 @@
-import { Stack, useLocalSearchParams } from 'expo-router';
-import { ScrollView, StyleSheet, Text, View } from 'react-native';
+import { Link, Stack, useLocalSearchParams } from 'expo-router';
+import { Pressable, ScrollView, StyleSheet, Text, View } from 'react-native';
 
 import { ElasticImage } from '@/components/ElasticImage';
 import { NutriScoreBadge } from '@/components/NutriScoreBadge';
 import { NutrimentsTable } from '@/components/NutrimentsTable';
 import { catalog } from '@/data/catalog';
-import { colors, fontSizes, monospaceFont, spacing } from '@/theme/theme';
+import { colors, fontSizes, monospaceFont, radius, spacing } from '@/theme/theme';
 
 // Les crochets du nom de fichier font de « code » un paramètre de route : /product/3017620422003.
 export default function ProductScreen() {
@@ -41,6 +41,12 @@ export default function ProductScreen() {
       </View>
 
       {product.novaGroup ? <Text style={styles.nova}>Groupe NOVA {product.novaGroup} sur 4</Text> : null}
+
+      <Link href={{ pathname: '/review/[code]', params: { code: product.code } }} asChild>
+        <Pressable style={styles.reviewButton}>
+          <Text style={styles.reviewButtonText}>Donner mon avis</Text>
+        </Pressable>
+      </Link>
 
       <NutrimentsTable nutriments={product.nutriments} />
 
@@ -95,6 +101,17 @@ const styles = StyleSheet.create({
   },
   nova: {
     color: colors.text,
+  },
+  reviewButton: {
+    borderWidth: 1,
+    borderColor: colors.primary,
+    borderRadius: radius.md,
+    paddingVertical: spacing.sm,
+    alignItems: 'center',
+  },
+  reviewButtonText: {
+    color: colors.primary,
+    fontWeight: '600',
   },
   block: {
     gap: spacing.xs,

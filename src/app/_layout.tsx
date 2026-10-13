@@ -15,6 +15,8 @@ export default function RootLayout() {
       {/* Les onglets ont leur propre en-tête : on masque celui de la pile. */}
       <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
       <Stack.Screen name="product/[code]" options={{ title: 'Produit' }} />
+      {/* L'avis s'ouvre en modale : il glisse depuis le bas de l'écran. */}
+      <Stack.Screen name="review/[code]" options={{ title: 'Mon avis', presentation: 'modal' }} />
     </Stack>
   );
 }
