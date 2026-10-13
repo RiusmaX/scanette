@@ -1,29 +1,34 @@
+import { Stack } from 'expo-router';
 import { useEffect, useState } from 'react';
-import { ActivityIndicator, Button, ScrollView, StyleSheet, Text, useWindowDimensions, View } from 'react-native';
+import {
+  ActivityIndicator,
+  Button,
+  FlatList,
+  SectionList,
+  StyleSheet,
+  Switch,
+  Text,
+  View,
+} from 'react-native';
 
 import { ProductCard } from '@/components/ProductCard';
+import { SearchBar } from '@/components/SearchBar';
 import { fetchCatalog } from '@/services/catalogService';
 import { colors, fontSizes, spacing } from '@/theme/theme';
 import type { Product } from '@/types/product';
+import { filterProducts, groupByCategory } from '@/utils/search';
 
-const PAGE_SIZE = 5;
-
-export default function HomeScreen() {
+export default function CatalogScreen() {
   const [products, setProducts] = useState<Product[]>([]);
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
-  const [visibleCount, setVisibleCount] = useState(PAGE_SIZE);
-  // Changer cette valeur relance le chargement (bouton « Réessayer »).
   const [reloadKey, setReloadKey] = useState(0);
-  // Bonus du TP 6 : la largeur de l'écran, mise à jour quand on tourne le téléphone.
-  const { width } = useWindowDimensions();
-  const isWide = width >= 600;
+  const [query, setQuery] = useState('');
+  // Bonus du TP 7 : affichage groupé par catégorie.
+  const [isGrouped, setIsGrouped] = useState(false);
 
-  // Effet de montage : il s'exécute après le premier affichage, puis à chaque changement de reloadKey.
   useEffect(() => {
-    // Si l'écran disparaît avant la réponse, on ignore le résultat (nettoyage plus bas).
     let ignore = false;
-
     async function load() {
       setIsLoading(true);
       setError(null);
@@ -42,10 +47,7 @@ export default function HomeScreen() {
         }
       }
     }
-
     load();
-
-    // Fonction de nettoyage : appelée au démontage, ou avant de relancer l'effet.
     return () => {
       ignore = true;
     };
@@ -54,7 +56,7 @@ export default function HomeScreen() {
   if (isLoading) {
     return (
       <View style={styles.centered}>
-        <ActivityIndicator size="large" />
+        <ActivityIndicator size="large" color={colors.primary} />
         <Text>Chargement du catalogue…</Text>
       </View>
     );
@@ -69,49 +71,51 @@ export default function HomeScreen() {
     );
   }
 
-  const visibleProducts = products.slice(0, visibleCount);
+  // Valeur dérivée : on ne la stocke pas dans un état, on la recalcule à chaque rendu.
+  const filteredProducts = filterProducts(products, query);
 
   return (
-    <ScrollView contentContainerStyle={styles.container}>
-      <Text style={styles.title}>Scanette</Text>
-      <LastUpdate />
-      <Text style={styles.subtitle}>
-        {visibleProducts.length} produits affichés sur {products.length}
-      </Text>
-      <View style={isWide ? styles.grid : undefined}>
-        {visibleProducts.map((product) => (
-          <View key={product.code} style={isWide ? styles.gridItem : undefined}>
-            <ProductCard product={product} />
-          </View>
-        ))}
+    <View style={styles.screen}>
+      {/* Titre de l'écran dans l'en-tête de la pile */}
+      <Stack.Screen options={{ title: 'Catalogue' }} />
+
+      <SearchBar value={query} onChangeText={setQuery} />
+
+      <View style={styles.toolbar}>
+        <Text style={styles.count}>{filteredProducts.length} produits</Text>
+        <View style={styles.switchRow}>
+          <Text style={styles.count}>Par catégorie</Text>
+          <Switch value={isGrouped} onValueChange={setIsGrouped} />
+        </View>
       </View>
-      {visibleCount < products.length ? (
-        <Button title="Voir plus" onPress={() => setVisibleCount(visibleCount + PAGE_SIZE)} />
-      ) : null}
-    </ScrollView>
+
+      {isGrouped ? (
+        <SectionList
+          sections={groupByCategory(filteredProducts)}
+          keyExtractor={(item) => item.code}
+          renderItem={({ item }) => <ProductCard product={item} />}
+          renderSectionHeader={({ section }) => <Text style={styles.sectionHeader}>{section.title}</Text>}
+          contentContainerStyle={styles.list}
+          stickySectionHeadersEnabled
+        />
+      ) : (
+        // FlatList ne crée que les cartes visibles à l'écran (virtualisation), contrairement à ScrollView + map.
+        <FlatList
+          data={filteredProducts}
+          keyExtractor={(item) => item.code}
+          renderItem={({ item }) => <ProductCard product={item} />}
+          contentContainerStyle={styles.list}
+          keyboardShouldPersistTaps="handled"
+          ListEmptyComponent={<Text style={styles.empty}>Aucun produit ne correspond à « {query} ».</Text>}
+        />
+      )}
+    </View>
   );
 }
 
-// Bonus du TP 5 : un minuteur démarré au montage et arrêté au démontage.
-function LastUpdate() {
-  const [seconds, setSeconds] = useState(0);
-
-  useEffect(() => {
-    const intervalId = setInterval(() => {
-      // Forme « fonction » du setter : on part toujours de la dernière valeur.
-      setSeconds((previous) => previous + 1);
-    }, 1000);
-    // Sans ce nettoyage, le minuteur continuerait de tourner après la disparition du composant.
-    return () => clearInterval(intervalId);
-  }, []);
-
-  return <Text style={styles.subtitle}>Mis à jour il y a {seconds} s</Text>;
-}
-
 const styles = StyleSheet.create({
-  container: {
-    padding: spacing.lg,
-    gap: spacing.sm,
+  screen: {
+    flex: 1,
     backgroundColor: colors.background,
   },
   centered: {
@@ -120,21 +124,33 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     gap: spacing.md,
   },
-  title: {
-    fontSize: fontSizes.heading,
-    fontWeight: 'bold',
-    color: colors.primary,
+  toolbar: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    paddingHorizontal: spacing.lg,
   },
-  subtitle: {
+  switchRow: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: spacing.sm,
+  },
+  count: {
     color: colors.textMuted,
   },
-  // Sur un écran large : deux colonnes. flexWrap fait passer les cartes à la ligne.
-  grid: {
-    flexDirection: 'row',
-    flexWrap: 'wrap',
-    justifyContent: 'space-between',
+  list: {
+    padding: spacing.lg,
   },
-  gridItem: {
-    width: '49%',
+  sectionHeader: {
+    fontSize: fontSizes.title,
+    fontWeight: 'bold',
+    color: colors.primary,
+    backgroundColor: colors.background,
+    paddingVertical: spacing.sm,
+  },
+  empty: {
+    textAlign: 'center',
+    color: colors.textMuted,
+    marginTop: spacing.xl,
   },
 });
