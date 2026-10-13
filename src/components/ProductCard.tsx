@@ -5,6 +5,7 @@ import { Image, Pressable, StyleSheet, Text, View } from 'react-native';
 import { colors, fontSizes, monospaceFont, radius, spacing } from '@/theme/theme';
 import type { Product } from '@/types/product';
 
+import { FavoriteButton } from './FavoriteButton';
 import { NutriScoreBadge } from './NutriScoreBadge';
 
 type ProductCardProps = {
@@ -39,11 +40,7 @@ export function ProductCard({ product }: ProductCardProps) {
 
         <View style={styles.actions}>
           <NutriScoreBadge grade={product.nutriScore} />
-          <Pressable onPress={() => setIsFavorite(!isFavorite)} hitSlop={8}>
-            <Text style={[styles.favorite, isFavorite && styles.favoriteActive]}>
-              {isFavorite ? '♥' : '♡'}
-            </Text>
-          </Pressable>
+          <FavoriteButton isFavorite={isFavorite} onToggle={() => setIsFavorite(!isFavorite)} />
         </View>
       </Pressable>
     </Link>
@@ -92,12 +89,5 @@ const styles = StyleSheet.create({
   actions: {
     alignItems: 'center',
     gap: spacing.sm,
-  },
-  favorite: {
-    fontSize: 24,
-    color: colors.textMuted,
-  },
-  favoriteActive: {
-    color: colors.favorite,
   },
 });

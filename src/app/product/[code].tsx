@@ -1,10 +1,11 @@
 import { Stack, useLocalSearchParams } from 'expo-router';
-import { Image, ScrollView, StyleSheet, Text, View } from 'react-native';
+import { ScrollView, StyleSheet, Text, View } from 'react-native';
 
+import { ElasticImage } from '@/components/ElasticImage';
 import { NutriScoreBadge } from '@/components/NutriScoreBadge';
 import { NutrimentsTable } from '@/components/NutrimentsTable';
 import { catalog } from '@/data/catalog';
-import { colors, fontSizes, monospaceFont, radius, spacing } from '@/theme/theme';
+import { colors, fontSizes, monospaceFont, spacing } from '@/theme/theme';
 
 // Les crochets du nom de fichier font de « code » un paramètre de route : /product/3017620422003.
 export default function ProductScreen() {
@@ -25,7 +26,7 @@ export default function ProductScreen() {
       {/* Le titre de l'en-tête prend le nom du produit. */}
       <Stack.Screen options={{ title: product.name }} />
 
-      {product.imageUrl ? <Image source={{ uri: product.imageUrl }} style={styles.image} /> : null}
+      {product.imageUrl ? <ElasticImage uri={product.imageUrl} /> : null}
 
       <View style={styles.header}>
         <View style={styles.headerText}>
@@ -69,13 +70,6 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: 'center',
     justifyContent: 'center',
-  },
-  image: {
-    width: '100%',
-    height: 220,
-    resizeMode: 'contain',
-    backgroundColor: colors.surface,
-    borderRadius: radius.md,
   },
   header: {
     flexDirection: 'row',

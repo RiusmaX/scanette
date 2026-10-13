@@ -3,6 +3,7 @@ import {
   ActivityIndicator,
   Button,
   FlatList,
+  LayoutAnimation,
   SectionList,
   StyleSheet,
   Switch,
@@ -10,6 +11,7 @@ import {
   View,
 } from 'react-native';
 
+import { FadeInView } from '@/components/FadeInView';
 import { ProductCard } from '@/components/ProductCard';
 import { SearchBar } from '@/components/SearchBar';
 import { fetchCatalog } from '@/services/catalogService';
@@ -32,7 +34,7 @@ export default function CatalogScreen() {
       setIsLoading(true);
       setError(null);
       try {
-        const data = await fetchCatalog(800, 0.2);
+        const data = await fetchCatalog();
         if (!ignore) {
           setProducts(data);
         }
@@ -70,12 +72,18 @@ export default function CatalogScreen() {
     );
   }
 
+  // La liste change de taille à chaque frappe : LayoutAnimation anime la prochaine mise en page.
+  function handleSearch(text: string) {
+    LayoutAnimation.configureNext(LayoutAnimation.Presets.easeInEaseOut);
+    setQuery(text);
+  }
+
   // Valeur dérivée : on ne la stocke pas dans un état, on la recalcule à chaque rendu.
   const filteredProducts = filterProducts(products, query);
 
   return (
     <View style={styles.screen}>
-      <SearchBar value={query} onChangeText={setQuery} />
+      <SearchBar value={query} onChangeText={handleSearch} />
 
       <View style={styles.toolbar}>
         <Text style={styles.count}>{filteredProducts.length} produits</Text>
@@ -99,7 +107,12 @@ export default function CatalogScreen() {
         <FlatList
           data={filteredProducts}
           keyExtractor={(item) => item.code}
-          renderItem={({ item }) => <ProductCard product={item} />}
+          renderItem={({ item, index }) => (
+            // Les premières cartes apparaissent l'une après l'autre.
+            <FadeInView delay={Math.min(index, 8) * 60}>
+              <ProductCard product={item} />
+            </FadeInView>
+          )}
           contentContainerStyle={styles.list}
           keyboardShouldPersistTaps="handled"
           ListEmptyComponent={<Text style={styles.empty}>Aucun produit ne correspond à « {query} ».</Text>}
